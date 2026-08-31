@@ -11,6 +11,12 @@
   if (planSlug) track('plan_view', { plan: planSlug });
   if (/^\/book\/?$/.test(location.pathname)) track('booking_page_view');
 
+  // call_click
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('a[href^="tel:"]');
+    if (t) track('call_click', { number: t.getAttribute('href').slice(4) });
+  });
+
   // faq_open
   document.querySelectorAll('.faq details').forEach(function (d) {
     d.addEventListener('toggle', function () {
