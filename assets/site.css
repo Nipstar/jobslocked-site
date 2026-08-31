@@ -58,7 +58,8 @@ ul.floor{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10
 .tier ul{list-style:none;flex:1;margin-bottom:4px}
 .tier li{font-size:.95rem;padding:6px 0 6px 24px;position:relative;border-top:1px solid #EEF0EE}
 .tier li::before{content:"+";position:absolute;left:2px;color:var(--amber-d);font-weight:900}
-.tier .btn{text-align:center}
+.tier .btn{text-align:center;margin-top:14px}
+a.tier:hover .btn{background:var(--amber-d)}
 .tier.base ul li::before{content:"•"}
 /* whole pricing card is a link to its plan page */
 a.tier{text-decoration:none;transition:border-color .15s,box-shadow .15s}
