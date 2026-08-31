@@ -9,7 +9,7 @@ ErrorDocument 404 /404.html
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "payment=(self \"https://crm.antekautomation.com\")"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://crm.antekautomation.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://crm.antekautomation.com; frame-src https://crm.antekautomation.com; connect-src 'self' https://crm.antekautomation.com; font-src 'self'; base-uri 'self'; form-action 'self' https://crm.antekautomation.com"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://crm.antekautomation.com https://widgets.leadconnectorhq.com; style-src 'self' 'unsafe-inline' https://*.leadconnectorhq.com; img-src 'self' data: https://crm.antekautomation.com https://*.leadconnectorhq.com https://*.msgsndr.com; frame-src https://crm.antekautomation.com https://*.leadconnectorhq.com; connect-src 'self' https://crm.antekautomation.com https://*.leadconnectorhq.com https://*.msgsndr.com wss://*.leadconnectorhq.com; font-src 'self' data: https://*.leadconnectorhq.com; media-src 'self' https://*.leadconnectorhq.com https://*.msgsndr.com; base-uri 'self'; form-action 'self' https://crm.antekautomation.com https://*.leadconnectorhq.com"
 </IfModule>
 
 # --- caching: long for static assets, short for HTML ---
