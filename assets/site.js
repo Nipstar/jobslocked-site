@@ -24,6 +24,22 @@
     });
   });
 
+  // chat widget — deferred to first interaction (or 3.5s) to keep it off the mobile critical path
+  var CHAT_WIDGET_ID = '6a95a728875dbbff936e1cf6';
+  var chatLoaded = false;
+  function loadChatWidget() {
+    if (chatLoaded) return;
+    chatLoaded = true;
+    ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { removeEventListener(ev, loadChatWidget); });
+    var s = document.createElement('script');
+    s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    s.setAttribute('data-widget-id', CHAT_WIDGET_ID);
+    document.body.appendChild(s);
+  }
+  ['scroll', 'pointerdown', 'keydown', 'touchstart'].forEach(function (ev) { addEventListener(ev, loadChatWidget, { passive: true }); });
+  setTimeout(loadChatWidget, 3500);
+
   // booking modal — lazy CRM embed, loaded on first open only
   var EMBED_SRC = 'https://crm.antekautomation.com/widget/booking/F0NVJAUm537h7ZbOERjf';
   var EMBED_ID = 'F0NVJAUm537h7ZbOERjf_1788173445410';

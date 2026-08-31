@@ -23,6 +23,7 @@ logo.png og-default.png             schema logo / social share image
 
 - **Copy lives in the HTML.** Header, footer and the 6-item FAQ are duplicated on every page — when you change one of those blocks, change it on **all pages** (index, 3 plan pages, book, privacy, terms). Grep for a phrase to find every copy.
 - Plan prices/minutes appear in: the plan page hero + glance block + JSON-LD, the home pricing cards + home JSON-LD offers, and `llms.txt` / `llms-full.txt`. Update all of them together.
+- When you edit `assets/site.css` or `assets/site.js`, bump the `?v=N` query on their <link>/<script> tags in ALL pages — they are cached 30 days and repeat visitors keep the old file otherwise.
 - When you edit a page, bump its `dateModified` in the JSON-LD and its `<lastmod>` in `sitemap.xml`.
 - FAQ text in the JSON-LD `FAQPage` must stay verbatim-identical to the visible `<details>` text.
 - OG image: regenerate by opening `reference/og.html` in a browser at 1200×630 and screenshotting to `og-default.png`.
