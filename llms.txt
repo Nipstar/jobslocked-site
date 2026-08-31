@@ -1,0 +1,30 @@
+# JobsLocked
+
+JobsLocked is an AI receptionist, booking and review service sold to US contractors and home-service businesses (plumbers, HVAC, roofers, electricians and similar trades). It answers every phone call 24/7 in the business's name, holds a real conversation, books the job straight into the contractor's live calendar, texts back missed calls within 60 seconds, replies to SMS/WhatsApp/web-form enquiries, hands genuine emergencies to the owner live, and asks every finished job for a Google review. It is a product of Antek Automation (UK-founded, serving US contractors). Contact: hello@jobslocked.com.
+
+## Pages
+
+- https://jobslocked.com/ — Home: the problem (missed calls = lost jobs), how the receptionist works, what every plan includes, the three plans, FAQ.
+- https://jobslocked.com/plans/never-miss-a-call/ — Plan 1, Never Miss a Call: the answer-and-book floor sold on its own.
+- https://jobslocked.com/plans/book-every-job/ — Plan 2, Book Every Job: adds website chat, follow-up sequences, existing-customer handling, pipeline.
+- https://jobslocked.com/plans/win-the-job-win-the-review/ — Plan 3, Win the Job, Win the Review: adds review replies, reputation watch, a booking website, monthly report.
+- https://jobslocked.com/book/ — Book a 15-minute call (booking calendar).
+- https://jobslocked.com/privacy/ — Privacy policy.
+- https://jobslocked.com/terms/ — Terms of service.
+
+## Plans
+
+- Never Miss a Call — $449/month, 300 receptionist minutes included. Every call answered 24/7, live calendar booking, missed-call text-back, SMS/WhatsApp/web-form responses, emergency handoff, review request after every job. Month to month, one-time setup fee.
+- Book Every Job — $649/month, 600 minutes included. Everything above, plus website chat, follow-up sequences that chase unbooked enquiries, existing-customer handling, and a pipeline view of every enquiry. Most chosen plan.
+- Win the Job, Win the Review — $949/month plus a one-time website build, 1,000 minutes included. Everything above, plus replies to every Google review in the owner's voice, reputation watch, a website built around the booking flow, and a monthly report.
+
+## Every plan includes (the floor)
+
+- AI receptionist answers every call, 24/7
+- Books the job straight into your calendar
+- Missed-call text-back if a caller hangs up early
+- Replies to SMS and WhatsApp enquiries instantly
+- Calls back web-form leads within 60 seconds
+- Texts you a summary of every conversation
+- Hands real emergencies to you live
+- Review request texted after every finished job — direct Google link

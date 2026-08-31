@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="only light">
+<title>JobsLocked — Never Miss a Call: AI receptionist for contractors</title><meta name="description" content="Every call answered on the second ring. Every enquiry replied to inside a minute. Every job booked into your calendar. This is the floor — and on its ">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%231B242C%27/%3E%3Crect x=%278%27 y=%2714%27 width=%2716%27 height=%2712%27 rx=%272.5%27 fill=%27%23FFB300%27/%3E%3Cpath d=%27M11 14v-3.5a5 5 0 0 1 10 0V14%27 fill=%27none%27 stroke=%27%23FFB300%27 stroke-width=%273%27/%3E%3Cpath d=%27M12.5 20l2.5 2.5 4.5-5%27 fill=%27none%27 stroke=%27%231B242C%27 stroke-width=%272.6%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:only light;--graphite:#1B242C;--ink:#0F161B;--amber:#FFB300;--amber-d:#E39F00;--paper:#F2F3F1;--white:#fff;--muted:#5A6672;--line:#D9DDD8;--red:#D9432F}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--paper)}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--paper)!important;color:var(--graphite)!important;line-height:1.55;font-size:17px}
+h1,h2,h3,.disp{font-family:'Archivo',Inter,sans-serif;font-stretch:condensed;font-weight:900;line-height:1.02;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,7vw,4.6rem)}h2{font-size:clamp(1.8rem,4.5vw,2.8rem);margin-bottom:.6em}h3{font-size:1.35rem;margin-bottom:.35em}
+p{max-width:62ch}p,li,td,figcaption{color:var(--graphite)}.muted{color:var(--muted)!important}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:var(--graphite);color:#fff}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding:16px 20px}
+.wordmark{font-family:'Archivo',sans-serif;font-stretch:condensed;font-weight:900;font-size:1.35rem;letter-spacing:.02em;text-decoration:none;color:#fff;display:flex;align-items:center;gap:10px}
+.wordmark span{color:var(--amber)}
+.btn{display:inline-block;background:var(--amber);color:var(--ink)!important;font-weight:700;padding:15px 24px;border-radius:6px;text-decoration:none;font-size:1.02rem;border:0;cursor:pointer}
+.btn:hover{background:var(--amber-d)}.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.btn.ghost{background:transparent;color:#fff!important;border:2px solid rgba(255,255,255,.35)}
+section{padding:64px 0}section.dark{background:var(--graphite);color:#fff}section.dark p,section.dark li,section.dark h2,section.dark h3{color:#fff}section.dark .muted{color:#AEB7BE!important}
+.hero{background:var(--graphite);color:#fff;padding:56px 0 64px}
+.hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{color:#fff;margin-bottom:18px}.hero .lead{font-size:1.2rem;color:#D5DBE0;margin-bottom:26px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.hero .sub{font-size:.9rem;color:#AEB7BE;margin-top:14px}
+/* signature: the missed-call log */
+.log{background:#fff;color:var(--graphite);border-radius:10px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);font-size:.95rem}
+.log .bar{background:#E9ECEA;padding:10px 16px;font-weight:600;font-size:.85rem;display:flex;justify-content:space-between}
+.log .row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;padding:14px 16px;border-top:1px solid var(--line);align-items:center}
+.log .t{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.85rem}
+.log .who{font-weight:600}.log .what{color:var(--muted);font-size:.85rem}
+.log .val{font-family:'Archivo',sans-serif;font-stretch:condensed;font-weight:900;font-size:1.25rem;color:var(--red);text-align:right}
+.log .val small{display:block;font:600 .7rem Inter,sans-serif;color:var(--red)}
+.log .row.win .val{color:#1F8A4C}.log .row.win .val small{color:#1F8A4C}
+.log .tot{display:flex;justify-content:space-between;padding:14px 16px;border-top:2px solid var(--graphite);font-weight:700}
+.log .tot b{color:var(--red);font-size:1.2rem}
+.strip{background:var(--amber);color:var(--ink);text-align:center;font-weight:700;padding:12px 20px;font-size:.98rem}
+.pain{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.pain div{border-left:5px solid var(--amber);padding-left:16px}
+.pain h3{font-size:1.15rem}.pain p{font-size:.98rem}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.steps div{background:#fff;border-radius:10px;padding:22px 20px;border:1px solid var(--line)}
+.steps div::before{counter-increment:s;content:counter(s);display:inline-block;background:var(--graphite);color:var(--amber);font-family:'Archivo';font-weight:900;font-stretch:condensed;width:36px;height:36px;border-radius:8px;text-align:center;line-height:36px;margin-bottom:12px;font-size:1.2rem}
+.steps h3{font-size:1.1rem}.steps p{font-size:.95rem}section.dark .steps h3,section.dark .steps p{color:var(--graphite)}
+.floor{background:#fff;border:2px solid var(--graphite);border-radius:12px;padding:28px}
+.floor ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px;margin-top:14px}
+ul.floor{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 28px}.floor li{padding-left:28px;position:relative;font-size:.98rem}
+.floor li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:4px;background:var(--amber)}
+.floor li::after{content:"";position:absolute;left:5px;top:9px;width:5px;height:8px;border:solid var(--ink);border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.tier{background:#fff;border-radius:12px;border:1px solid var(--line);padding:26px 24px;display:flex;flex-direction:column;color:var(--graphite)}
+.tier.hot{border:3px solid var(--amber);position:relative}
+.tier.hot .tag{position:absolute;top:-14px;left:24px;background:var(--amber);color:var(--ink);font-weight:700;font-size:.78rem;padding:4px 10px;border-radius:999px}
+.tier .name{font-family:'Archivo';font-stretch:condensed;font-weight:900;font-size:1.5rem}
+.tier .price{font-family:'Archivo';font-stretch:condensed;font-weight:900;font-size:2.6rem;margin:8px 0 2px}
+.tier .price small{font:600 .9rem Inter;color:var(--muted)}
+.tier .for{color:var(--muted);font-size:.92rem;min-height:3em;margin-bottom:14px}
+.tier .plus{font-weight:700;font-size:.85rem;color:var(--muted);margin-bottom:8px}
+.tier ul{list-style:none;flex:1;margin-bottom:4px}
+.tier li{font-size:.95rem;padding:6px 0 6px 24px;position:relative;border-top:1px solid #EEF0EE}
+.tier li::before{content:"+";position:absolute;left:2px;color:var(--amber-d);font-weight:900}
+.tier .btn{text-align:center}
+.tier.base ul li::before{content:"•"}
+.honest{background:#fff;border-left:6px solid var(--graphite);padding:22px 24px;border-radius:0 10px 10px 0}
+.faq details{border-top:1px solid var(--line);padding:16px 0}.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{font-weight:700;cursor:pointer;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between}
+.faq summary::after{content:"+";color:var(--amber-d);font-weight:900;font-size:1.3rem}.faq details[open] summary::after{content:"–"}
+.faq p{margin-top:10px;color:var(--muted)}
+.final{text-align:center}.final h2{max-width:20ch;margin:0 auto .5em}.final p{margin:0 auto 26px;color:#D5DBE0}
+footer{background:var(--ink);color:#AEB7BE;font-size:.85rem;padding:28px 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.tp{background:var(--graphite);color:#fff;padding:56px 0}
+.tp h1{color:#fff;font-size:clamp(2.2rem,6vw,3.8rem)}.tp .price{font-family:'Archivo';font-stretch:condensed;font-weight:900;font-size:2.2rem;color:var(--amber);margin:14px 0 6px}
+.tp .lead{font-size:1.15rem;color:#D5DBE0;max-width:58ch;margin-bottom:24px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+.day{list-style:none;border-left:3px solid var(--amber);margin-left:8px}
+.day li{padding:0 0 22px 22px;position:relative}
+.day li::before{content:"";position:absolute;left:-10px;top:4px;width:17px;height:17px;border-radius:50%;background:var(--amber);border:3px solid var(--paper)}
+.day b{display:block;font-family:'Archivo';font-stretch:condensed;font-weight:900;font-size:1.1rem}
+.day p{font-size:.95rem;color:var(--muted)}
+.ladder{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.ladder a{font-size:.9rem;padding:8px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:#fff}
+.ladder a.cur{background:var(--graphite);color:#fff;border-color:var(--graphite)}
+@media(max-width:820px){header .btn{padding:11px 14px;font-size:.9rem}.log .row{grid-template-columns:1fr auto;gap:6px 12px}.log .t{grid-column:1/-1}.log .val{font-size:1.15rem}.hero .grid,.two{grid-template-columns:1fr}.pain,.steps,.tiers{grid-template-columns:1fr}.floor ul,ul.floor{grid-template-columns:1fr}section{padding:48px 0}}
+@media(prefers-reduced-motion:no-preference){.log .row{animation:in .5s both}.log .row:nth-child(2){animation-delay:.15s}.log .row:nth-child(3){animation-delay:.3s}.log .row:nth-child(4){animation-delay:.45s}.log .row:nth-child(5){animation-delay:.6s}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
+</style></head><body>
+<header><div class="wrap"><a class="wordmark" href="index.html"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="#2A3640"/><rect x="8" y="14" width="16" height="12" rx="2.5" fill="#FFB300"/><path d="M11 14v-3.5a5 5 0 0 1 10 0V14" fill="none" stroke="#FFB300" stroke-width="3"/><path d="M12.5 20l2.5 2.5 4.5-5" fill="none" stroke="#1B242C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>JOBS<span>LOCKED</span></a><a class="btn" href="#book">Book a call</a></div></header><section class="tp"><div class="wrap"><p class="muted" style="color:#AEB7BE!important;font-weight:600">Plan 1 of 3</p><h1>Never Miss a Call</h1><div class="price">$449/mo</div><p class="lead">Every call answered on the second ring. Every enquiry replied to inside a minute. Every job booked into your calendar. This is the floor — and on its own, it's the plan most contractors are actually missing.</p><a class="btn" href="#book">Book a 15-minute call</a></div></section>
+<section><div class="wrap two"><div><h2>Who this is for</h2><p>You run the crew and the phone. Calls go to voicemail when you're on a job, and you know some of them never call back. You don't want a receptionist on payroll and you don't want a call center reading a script. You want the phone handled the way you'd handle it, without you.</p><div class="ladder"><a href="tier1.html" class="cur">1 · Never Miss a Call</a><a href="tier2.html" class="">2 · Book Every Job</a><a href="tier3.html" class="">3 · Win the Job, Win the Review</a></div></div>
+<div><h2>A Tuesday with it running</h2><ul class="day"><li><b>7:52 AM</b><p>Homeowner calls from the school run. Answered, questions asked, booked for 1 PM. You get the text while you're loading the truck.</p></li><li><b>10:20 AM</b><p>Caller hangs up after two rings. Text-back sent in 40 seconds: 'Sorry we missed you — what's going on at the house?' They reply. It books them.</p></li><li><b>12:05 PM</b><p>Web form comes in. Called back inside 60 seconds. Referral on the line, booked.</p></li><li><b>3:10 PM</b><p>Morning job marked done. Customer gets a text with a direct link to your Google review page. Five stars by 3:40.</p></li><li><b>6:40 PM</b><p>Your phone shows four bookings, one new review and zero voicemails. You never picked up once.</p></li></ul></div></div></section>
+<section class="dark"><div class="wrap"><h2>What you get</h2><ul class="floor" style="background:transparent;border-color:rgba(255,255,255,.25)"><li>AI receptionist answering every call, 24/7, in your business name</li><li>Live calendar booking with confirmation text to the caller</li><li>Missed-call text-back within 60 seconds</li><li>SMS and WhatsApp enquiries answered instantly</li><li>Web-form leads called back within 60 seconds</li><li>Text summary to you after every conversation</li><li>Emergency handoff — it rings you live</li><li>Review request texted after every finished job, direct Google link, no gating</li><li>300 receptionist minutes a month included</li><li>Setup call, script built around your real job types, test calls before go-live</li><li>Month to month, one-time setup fee</li></ul></div></section>
+<section class="faq"><div class="wrap"><h2>Straight answers</h2>
+<details><summary>Will customers know it's not a person?</summary><p>If they ask, it tells them. Most don't ask — they've got a problem in the house and they want someone booked. It sounds calm, gets the address, the problem, and a time, and stops there.</p></details>
+<details><summary>What happens on a real emergency?</summary><p>It asks two questions, then rings you live. If you don't pick up, it books the earliest slot and tells the caller exactly when you'll be there.</p></details>
+<details><summary>Does it quote prices?</summary><p>Only the ranges you give it, and only if you want it to. Default is "the owner will confirm on site." It never invents a number.</p></details>
+<details><summary>Can I keep my number?</summary><p>Yes. We forward your existing number, or give you a new tracking number for ads. Either way your customers dial what they've always dialed.</p></details>
+<details><summary>How long until it's live?</summary><p>Setup call, then about a week to build and test with your real job types. You hear it before a customer does.</p></details>
+<details><summary>Am I locked into a contract?</summary><p>Month to month. The setup fee covers the build; the plan covers the running. Leave whenever it stops paying for itself.</p></details>
+</div></section>
+<section class="dark final" id="book"><div class="wrap"><h2>Start answering every call this month.</h2><p>Fifteen minutes. You describe your typical call, you hear the receptionist take it.</p><a class="btn" href="https://cal.com/jobslocked/15min">Book a 15-minute call</a><p class="sub muted" style="margin-top:14px;font-size:.9rem">Slots mornings and lunchtimes, Eastern. No pitch deck. You'll hear the receptionist take a call.</p></div></section>
+<footer><div class="wrap"><div>JobsLocked · Jobs locked in. While you're on the tools.</div><div>AI answering, booking &amp; reviews for contractors · hello@jobslocked.com</div></div></footer></body></html>
