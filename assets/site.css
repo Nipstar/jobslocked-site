@@ -20,7 +20,8 @@ header .wrap{display:flex;justify-content:space-between;align-items:center;paddi
 section{padding:64px 0}section.dark{background:var(--graphite);color:#fff}section.dark p,section.dark li,section.dark h2,section.dark h3{color:#fff}section.dark .muted{color:#AEB7BE!important}
 .hero{background:var(--graphite);color:#fff;padding:56px 0 64px}
 .hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero h1{color:#fff;margin-bottom:18px}.hero .lead{font-size:1.2rem;color:#D5DBE0;margin-bottom:26px}
+.hero h1{color:#fff;margin-bottom:18px}
+.hero h1 .hl{color:var(--amber)}.hero .lead{font-size:1.2rem;color:#D5DBE0;margin-bottom:26px}
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.hero .sub{font-size:.9rem;color:#AEB7BE;margin-top:14px}
 /* signature: the missed-call log */
 .log{background:#fff;color:var(--graphite);border-radius:10px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);font-size:.95rem}
