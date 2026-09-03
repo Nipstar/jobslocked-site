@@ -1,0 +1,1010 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trades JV Concepts</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Courier+Prime:wght@400;700&family=Caveat:wght@600&family=Jost:wght@400;500;600;700&display=swap">
+<style>
+  body{margin:0;background:#1B1D22;font-family:'Barlow',-apple-system,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  img{max-width:100%}
+  a{color:inherit}
+  h1,h2,h3,h4{margin:0}
+  p,ul{margin:0}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+  /* ============ SWITCHER BAR ============ */
+  .switch{
+    position:sticky;top:0;z-index:100;background:#111318;color:#F5F2EA;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:0 20px;height:52px;border-bottom:1px solid #2A2E37;
+    font-family:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  .switch .sw-label{font-size:11px;letter-spacing:.2em;color:#F5F2EA;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sw-tabs{display:flex;gap:6px;flex-wrap:wrap}
+  .sw-tabs button{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;
+    background:transparent;color:#F5F2EA;border:1px solid #3A4050;padding:7px 13px;cursor:pointer;white-space:nowrap;
+  }
+  .sw-tabs button:hover{border-color:#F5F2EA}
+  .sw-tabs button.on{background:#F5F2EA;color:#111318;border-color:#F5F2EA;font-weight:600}
+  .sw-tabs button:focus-visible{outline:2px solid #FFB81C;outline-offset:2px}
+  .concept{display:none}
+  .concept.on{display:block}
+  @media (max-width:760px){
+    .switch{height:auto;flex-direction:column;align-items:flex-start;padding:10px 16px;gap:8px}
+    .sw-tabs{width:100%}
+    .sw-tabs button{flex:1;padding:8px 4px;font-size:10.5px}
+  }
+
+  /* ============================================================
+     CONCEPT 1 · BOOKED SOLID · industrial job sheet
+     ============================================================ */
+  .c1{background:#F4F2EC;color:#2A3442;font-size:17px;line-height:1.6}
+  .c1 .wrap{width:min(1180px,calc(100vw - 48px));margin:0 auto}
+  .c1 h1,.c1 h2,.c1 h3{font-family:'Barlow Condensed','Arial Narrow',sans-serif;text-transform:uppercase;line-height:1.02;letter-spacing:.005em}
+  .c1 .mono{font-family:'IBM Plex Mono',monospace}
+  .c1 .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}
+  .c1 .eyebrow::before{content:"";width:26px;height:3px;background:#FFB81C;display:inline-block}
+  .c1 .hazard{height:8px;background:repeating-linear-gradient(-45deg,#FFB81C 0 14px,#101B29 14px 28px)}
+  .c1 .btn{
+    display:inline-block;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:20px;letter-spacing:.06em;text-decoration:none;padding:16px 30px;
+    background:#FFB81C;color:#101B29;border:2px solid #101B29;box-shadow:5px 5px 0 rgba(16,27,41,.9);cursor:pointer;
+  }
+  .c1 .btn:hover{background:#FFC542}
+  .c1 .btn:active{transform:translate(2px,2px);box-shadow:none}
+
+  .c1 .topbar{background:#101B29;color:#FFFDF6}
+  .c1 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .c1 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#FFFDF6}
+  .c1 .brand-mark{width:32px;height:32px;background:#FFB81C;color:#101B29;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;clip-path:polygon(0 0,100% 0,100% 78%,78% 100%,0 100%)}
+  .c1 .brand-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:23px;letter-spacing:.08em;text-transform:uppercase}
+  .c1 .brand-name em{font-style:normal;color:#FFB81C}
+  .c1 .topbar .dom{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#FFB81C}
+
+  .c1 .hero{background:#101B29;color:#FFFDF6;padding:84px 0 0;overflow:hidden}
+  .c1 .hero .eyebrow{color:#FFB81C}
+  .c1 .hero h1{
+    font-size:clamp(46px,8.4vw,124px);font-weight:700;color:#FFFFFF;margin:26px 0 0;
+  }
+  .c1 .hero h1 .row{display:block;white-space:nowrap}
+  .c1 .hero h1 .row.indent{margin-left:.7em}
+  @media (max-width:560px){.c1 .hero h1 .row{white-space:normal}.c1 .hero h1 .row.indent{margin-left:0}}
+  .c1 .hero h1 .hl{color:#FFB81C}
+  .c1 .hero-under{
+    margin-top:44px;border-top:1px solid #2E4257;
+    display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;padding:30px 0 60px;align-items:center;
+  }
+  .c1 .hero-under p{font-size:19px;line-height:1.55;color:#FFFFFF;max-width:34em}
+  .c1 .hero-under p strong{color:#FFB81C;font-weight:600}
+  .c1 .hero-cta-cell{justify-self:end;text-align:right}
+  .c1 .hero-cta-cell .sub{display:block;margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:#FFFDF6}
+
+  .c1 section{padding:88px 0}
+  .c1 .sec-head{max-width:780px;margin-bottom:50px}
+  .c1 .sec-head h2{font-size:clamp(36px,4.4vw,58px);color:#101B29;margin-top:16px}
+  .c1 .sec-head p{margin-top:16px;font-size:18px}
+
+  .c1 .pain-strip{border:2px solid #101B29;background:#FFFDF6;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .c1 .pain-card{padding:30px 28px 34px;border-right:2px solid #101B29}
+  .c1 .pain-card:last-child{border-right:none}
+  .c1 .pain-card .when{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#101B29;background:#FFB81C;display:inline-block;padding:4px 10px;font-weight:600}
+  .c1 .pain-card h3{font-size:27px;color:#101B29;margin:18px 0 10px}
+  .c1 .pain-card p{font-size:15.5px}
+  .c1 .pain-punch{margin-top:34px;border-left:6px solid #FFB81C;padding:6px 0 6px 22px;font-family:'Barlow Condensed',sans-serif;font-size:clamp(24px,3vw,34px);font-weight:600;text-transform:uppercase;color:#101B29;line-height:1.15}
+
+  .c1 .demo{background:#101B29;color:#FFFDF6}
+  .c1 .demo .sec-head h2{color:#FFFFFF}
+  .c1 .demo .sec-head p{color:#FFFFFF}
+  .c1 .demo .eyebrow{color:#FFB81C}
+  .c1 .demo-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:36px;align-items:center}
+  .c1 .anno{display:flex;flex-direction:column;gap:34px}
+  .c1 .anno .a-item{max-width:26em}
+  .c1 .anno.left .a-item{text-align:right;margin-left:auto}
+  .c1 .a-time{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;color:#FFB81C;font-weight:600}
+  .c1 .a-item h3{font-size:23px;color:#FFFFFF;margin:6px 0 6px}
+  .c1 .a-item p{font-size:15px;color:#FFFFFF}
+  .c1 .phone{width:300px;max-width:100%;background:#0B131E;border:3px solid #22384D;border-radius:34px;padding:12px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+  .c1 .phone-screen{background:#101C2B;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;height:500px}
+  .c1 .chat-head{background:#182838;padding:12px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #2E4257}
+  .c1 .chat-avatar{width:34px;height:34px;border-radius:50%;background:#FFB81C;color:#101B29;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Barlow Condensed',sans-serif;font-size:17px}
+  .c1 .chat-name{font-weight:600;font-size:14px;color:#FFFFFF}
+  .c1 .chat-sub{font-size:11px;color:#FFB81C}
+  .c1 .chat-body{flex:1;padding:14px;display:flex;flex-direction:column;gap:10px;overflow:hidden;justify-content:flex-end}
+  .c1 .sys-chip{align-self:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#FFFFFF;background:rgba(214,69,69,.18);border:1px solid rgba(214,69,69,.55);padding:5px 12px;border-radius:20px}
+  .c1 .bubble{max-width:84%;padding:9px 13px;font-size:13.5px;line-height:1.45;border-radius:14px;opacity:0;transform:translateY(10px)}
+  .c1 .bubble.show{opacity:1;transform:none;transition:opacity .3s,transform .3s}
+  .c1 .from-biz{align-self:flex-start;background:#22384D;color:#FFFFFF;border-bottom-left-radius:4px}
+  .c1 .from-cust{align-self:flex-end;background:#FFB81C;color:#101B29;border-bottom-right-radius:4px;font-weight:500}
+  .c1 .bubble .t{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;margin-top:5px;opacity:.75}
+  .c1 .booked-card{align-self:stretch;background:rgba(46,158,91,.14);border:1px solid #2E9E5B;padding:11px 13px;border-radius:10px;opacity:0;transform:translateY(10px)}
+  .c1 .booked-card.show{opacity:1;transform:none;transition:opacity .3s,transform .3s}
+  .c1 .bk-title{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:#5ECD8B;font-size:15px}
+  .c1 .bk-line{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#FFFFFF;margin-top:4px}
+
+  .c1 .calc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:stretch}
+  .c1 .calc-inputs{display:flex;flex-direction:column;gap:34px;padding:34px 30px;background:#FFFDF6;border:2px solid #101B29}
+  .c1 .ctl label{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;font-size:15px;color:#101B29;margin-bottom:14px}
+  .c1 .ctl output{font-family:'IBM Plex Mono',monospace;font-size:20px;color:#B37F00;font-weight:600}
+  .c1 input[type=range]{width:100%;appearance:none;-webkit-appearance:none;height:6px;background:#D8D4C8;outline:none}
+  .c1 input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:26px;height:26px;background:#FFB81C;border:3px solid #101B29;cursor:pointer;border-radius:0}
+  .c1 input[type=range]::-moz-range-thumb{width:22px;height:22px;background:#FFB81C;border:3px solid #101B29;cursor:pointer;border-radius:0}
+  .c1 .calc-out{background:#101B29;color:#FFFDF6;border:2px solid #101B29;padding:34px 30px;display:flex;flex-direction:column}
+  .c1 .co-row{display:flex;justify-content:space-between;align-items:baseline;padding:13px 0;border-bottom:1px dashed #2E4257}
+  .c1 .co-row .lbl{font-size:14px;font-weight:600;color:#FFFDF6}
+  .c1 .co-row .val{font-family:'IBM Plex Mono',monospace;font-size:19px;font-weight:600;color:#FFFFFF}
+  .c1 .co-big{padding:20px 0 8px;border-bottom:none}
+  .c1 .co-big .lbl{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-size:19px;font-weight:700;color:#FF7B6B;letter-spacing:.05em}
+  .c1 .co-big .val{display:block;font-family:'IBM Plex Mono',monospace;font-size:clamp(38px,4.5vw,54px);font-weight:600;color:#FF7B6B;margin-top:6px;font-variant-numeric:tabular-nums}
+  .c1 .co-verdict{margin-top:auto;padding-top:20px;font-size:15.5px;color:#FFFFFF}
+  .c1 .co-verdict strong{color:#5ECD8B}
+  .c1 .calc-foot{margin-top:18px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#2A3442;letter-spacing:.04em}
+
+  .c1 .ledger{border-top:2px solid #101B29}
+  .c1 .l-row{display:grid;grid-template-columns:120px minmax(0,1fr) minmax(0,1.2fr);gap:28px;padding:28px 0;border-bottom:1px solid #C9C4B4;align-items:start}
+  .c1 .l-no{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.1em;color:#B37F00}
+  .c1 .l-row h3{font-size:27px;color:#101B29}
+  .c1 .l-row p{font-size:15.5px}
+  .c1 .not-sell{margin-top:40px;background:#101B29;color:#FFFDF6;padding:34px 32px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:30px;align-items:center}
+  .c1 .not-sell h3{font-size:32px;color:#FFB81C}
+  .c1 .not-sell ul{list-style:none;display:grid;gap:10px;padding:0}
+  .c1 .not-sell li{padding-left:30px;position:relative;color:#FFFFFF;font-size:16px}
+  .c1 .not-sell li::before{content:"✕";position:absolute;left:0;color:#FFB81C;font-weight:700}
+
+  .c1 .quote-sheet{border:2px solid #101B29;background:#FFFDF6}
+  .c1 .qs-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 28px;border-bottom:2px solid #101B29;background:#FFB81C;flex-wrap:wrap}
+  .c1 .qs-head h3{font-size:26px;color:#101B29}
+  .c1 .qs-head .mono{font-size:11px;letter-spacing:.16em;color:#101B29;font-weight:600}
+  .c1 .qs-row{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto;gap:24px;padding:22px 28px;border-bottom:1px dashed #C9C4B4;align-items:center}
+  .c1 .qs-row:last-of-type{border-bottom:none}
+  .c1 .qs-row h4{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-size:21px;color:#101B29;letter-spacing:.03em}
+  .c1 .qs-row .desc{font-size:14.5px;margin-top:4px}
+  .c1 .qs-row .inc{font-size:13.5px;color:#2A3442}
+  .c1 .qs-price{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;color:#101B29;text-align:right;white-space:nowrap}
+  .c1 .qs-price small{display:block;font-size:11px;font-weight:400}
+  .c1 .qs-foot{padding:20px 28px;background:#101B29;color:#FFFDF6;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .c1 .qs-foot .terms{font-size:14px;color:#FFFFFF;max-width:38em}
+  .c1 .final{background:#101B29;color:#FFFDF6;padding:80px 0}
+  .c1 .final h2{font-size:clamp(40px,5vw,66px);color:#FFFFFF;max-width:12em}
+  .c1 .final h2 em{font-style:normal;color:#FFB81C}
+  .c1 .final p{margin:18px 0 32px;font-size:18px;color:#FFFFFF;max-width:34em}
+  .c1 .footer{background:#0B131E;color:#FFFDF6;padding:28px 0}
+  .c1 .footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .c1 .fine{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#FFFDF6;letter-spacing:.06em}
+
+  @media (max-width:900px){
+    .c1 .hero-under{grid-template-columns:1fr}
+    .c1 .hero-cta-cell{justify-self:start;text-align:left}
+    .c1 .pain-strip{grid-template-columns:1fr}
+    .c1 .pain-card{border-right:none;border-bottom:2px solid #101B29}
+    .c1 .pain-card:last-child{border-bottom:none}
+    .c1 .demo-grid{grid-template-columns:1fr;justify-items:center}
+    .c1 .anno.left .a-item{text-align:left;margin-left:0}
+    .c1 .calc-grid{grid-template-columns:1fr}
+    .c1 .l-row{grid-template-columns:1fr;gap:8px}
+    .c1 .not-sell{grid-template-columns:1fr}
+    .c1 .qs-row{grid-template-columns:1fr;gap:8px}
+    .c1 .qs-price{text-align:left}
+  }
+  @media (max-width:520px){
+    .c1{font-size:16px}
+    .c1 .wrap{width:calc(100vw - 32px)}
+    .c1 .phone{width:270px}
+    .c1 .phone-screen{height:460px}
+    .c1 .topbar .dom{display:none}
+  }
+
+  /* ============================================================
+     CONCEPT 2 · MISSED NO MORE · paper job pad
+     ============================================================ */
+  .c2{background:#CEC6B4;color:#22242B;font-family:'Courier Prime',ui-monospace,monospace;font-size:16px;line-height:1.65;padding:56px 0 72px}
+  .c2 .sheet{
+    width:min(760px,calc(100vw - 40px));margin:0 auto 36px;background:#FCFBF7;
+    box-shadow:0 2px 4px rgba(30,25,10,.25),0 18px 40px rgba(30,25,10,.28);
+    padding:56px 58px 50px;position:relative;
+  }
+  .c2 .sheet.ruled{
+    background-image:repeating-linear-gradient(to bottom,transparent 0 27px,#C4D6E6 27px 28px);
+    background-position:0 8px;
+  }
+  .c2 .punch{position:absolute;top:22px;width:14px;height:14px;border-radius:50%;background:#CEC6B4;box-shadow:inset 0 1px 2px rgba(0,0,0,.35)}
+  .c2 .punch.p1{left:26px}.c2 .punch.p2{right:26px}
+  .c2 .pad-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border-bottom:3px double #22242B;padding-bottom:14px;margin-bottom:26px;flex-wrap:wrap}
+  .c2 .pad-brand{font-weight:700;font-size:21px;letter-spacing:.05em;text-transform:uppercase}
+  .c2 .pad-brand span{background:#C8372D;color:#FCFBF7;padding:2px 8px}
+  .c2 .pad-no{font-size:12.5px;color:#22242B}
+  .c2 .form-title{font-size:13px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;margin-bottom:22px}
+  .c2 .frow{display:flex;gap:10px;align-items:baseline;margin-bottom:14px;flex-wrap:wrap}
+  .c2 .frow .flabel{font-size:13px;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+  .c2 .frow .fval{flex:1;min-width:140px;border-bottom:1.5px solid #22242B;padding:0 6px 2px;font-weight:700;font-size:17px}
+  .c2 .fval.red{color:#C8372D}
+  .c2 .stamp{
+    position:absolute;right:70px;top:252px;transform:rotate(-11deg);
+    border:4px solid #C8372D;color:#C8372D;font-weight:700;font-size:26px;letter-spacing:.14em;text-transform:uppercase;
+    padding:8px 18px;opacity:.85;pointer-events:none;
+    mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='4'><rect width='4' height='4' fill='white' opacity='0.92'/></svg>");
+  }
+  .c2 .scrawl{font-family:'Caveat',cursive;font-size:26px;color:#1E4FA3;line-height:1.2;transform:rotate(-2deg);display:inline-block}
+  .c2 .headline{font-size:clamp(26px,4.5vw,38px);font-weight:700;line-height:1.25;margin:30px 0 18px;text-wrap:balance}
+  .c2 .headline mark{background:#F7E17D;padding:0 4px}
+  .c2 .body-copy{margin-bottom:14px}
+  .c2 .cta-btn{
+    display:inline-block;font-family:'Courier Prime',monospace;font-weight:700;font-size:17px;letter-spacing:.06em;text-transform:uppercase;
+    background:#22242B;color:#FCFBF7;text-decoration:none;padding:14px 26px;margin-top:14px;
+    box-shadow:4px 4px 0 #C8372D;
+  }
+  .c2 .cta-btn:hover{background:#3A3D47}
+  .c2 .cta-btn:active{transform:translate(2px,2px);box-shadow:none}
+  .c2 .receipt{
+    width:min(360px,86%);margin:6px auto;background:#FFFEFA;border:1px solid #DDD8C8;
+    padding:22px 20px;font-size:13px;box-shadow:0 8px 22px rgba(30,25,10,.18);position:relative;
+  }
+  .c2 .receipt::before,.c2 .receipt::after{
+    content:"";position:absolute;left:0;right:0;height:8px;
+    background-image:linear-gradient(45deg,#FFFEFA 25%,transparent 25%),linear-gradient(-45deg,#FFFEFA 25%,transparent 25%);
+    background-size:12px 12px;
+  }
+  .c2 .receipt::before{top:-8px;transform:rotate(180deg)}
+  .c2 .receipt::after{bottom:-8px}
+  .c2 .r-head{text-align:center;font-weight:700;letter-spacing:.18em;font-size:12px;border-bottom:1px dashed #999;padding-bottom:10px;margin-bottom:12px}
+  .c2 .r-line{display:flex;gap:10px;margin-bottom:9px}
+  .c2 .r-who{font-weight:700;white-space:nowrap;font-size:12px}
+  .c2 .r-who.cust{color:#1E4FA3}
+  .c2 .r-msg{flex:1}
+  .c2 .r-stamp{margin:14px auto 0;width:fit-content;transform:rotate(-6deg);border:3px solid #2E7D4F;color:#2E7D4F;font-weight:700;font-size:17px;letter-spacing:.12em;padding:5px 14px;text-transform:uppercase}
+  .c2 .carbon-note{text-align:center;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#22242B;margin:26px 0 10px}
+  .c2 .carbon{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:8px}
+  .c2 .copy-sheet{padding:24px 20px 26px;font-size:14px;box-shadow:0 6px 16px rgba(30,25,10,.18);position:relative;transform:rotate(-.6deg)}
+  .c2 .copy-sheet:nth-child(2){transform:rotate(.5deg)}
+  .c2 .copy-sheet:nth-child(3){transform:rotate(-.3deg)}
+  .c2 .copy-sheet.white{background:#FFFEFA}
+  .c2 .copy-sheet.yellow{background:#F9EFC0}
+  .c2 .copy-sheet.pink{background:#F6D9D4}
+  .c2 .cs-tag{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;border-bottom:1px solid #22242B;padding-bottom:6px;margin-bottom:12px}
+  .c2 .cs-title{font-weight:700;font-size:16.5px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.03em}
+  .c2 .price-table{width:100%;border-collapse:collapse;margin-top:18px;font-size:14.5px}
+  .c2 .price-table th{text-align:left;font-size:11px;letter-spacing:.18em;text-transform:uppercase;border-bottom:2px solid #22242B;padding:8px 6px}
+  .c2 .price-table td{border-bottom:1px solid #C9C2AE;padding:11px 6px;vertical-align:top}
+  .c2 .price-table .num{text-align:right;font-weight:700;white-space:nowrap}
+  .c2 .pad-foot{display:flex;justify-content:space-between;gap:12px;border-top:3px double #22242B;margin-top:30px;padding-top:14px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;flex-wrap:wrap}
+  @media (max-width:700px){
+    .c2 .sheet{padding:40px 26px 36px}
+    .c2 .stamp{position:static;display:inline-block;margin:14px 0 6px;transform:rotate(-4deg);font-size:20px}
+    .c2 .carbon{grid-template-columns:1fr}
+    .c2 .copy-sheet{transform:none!important}
+  }
+
+  /* ============================================================
+     CONCEPT 3 · EVERY CALL ANSWERED · the operator
+     ============================================================ */
+  .c3{
+    background:#F2EBDA;color:#241D15;font-family:'Jost',-apple-system,'Trebuchet MS',sans-serif;
+    font-size:17.5px;line-height:1.62;padding-bottom:64px;
+    background-image:radial-gradient(rgba(36,29,21,.045) 1px,transparent 1px);
+    background-size:26px 26px;
+  }
+  .c3 .wrap{width:min(980px,calc(100vw - 44px));margin:0 auto}
+  .c3 .smallcaps{letter-spacing:.24em;text-transform:uppercase;font-weight:600;font-size:12.5px}
+  .c3 .red{color:#B5121B}
+
+  .c3 .masthead{border-bottom:3px double #241D15;background:#F2EBDA}
+  .c3 .masthead .wrap{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px;flex-wrap:wrap}
+  .c3 .wordmark{display:flex;align-items:center;gap:14px}
+  .c3 .wordmark .dial-mini{flex:none}
+  .c3 .wordmark .wm-text{font-weight:700;font-size:19px;letter-spacing:.2em;text-transform:uppercase;color:#241D15}
+  .c3 .wordmark .wm-text b{color:#B5121B;font-weight:700}
+  .c3 .mast-dom{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#B5121B;font-weight:600}
+
+  /* notice hero */
+  .c3 .notice-outer{padding:64px 0 72px}
+  .c3 .notice{
+    border:3px solid #241D15;background:#F7F1E1;position:relative;
+    box-shadow:0 14px 34px rgba(36,29,21,.16);
+  }
+  .c3 .notice::before{content:"";position:absolute;inset:7px;border:1px solid #241D15;pointer-events:none}
+  .c3 .notice-band{
+    background:#B5121B;color:#F7F1E1;text-align:center;padding:12px 18px;margin:16px 16px 0;
+    letter-spacing:.3em;text-transform:uppercase;font-weight:600;font-size:13px;position:relative;
+  }
+  .c3 .notice-inner{padding:46px 48px 50px;text-align:center;position:relative}
+  .c3 .notice .dial-wrap{display:flex;justify-content:center;margin-bottom:34px}
+  .c3 .notice h1{
+    font-weight:700;font-size:clamp(40px,6.4vw,76px);line-height:1.04;letter-spacing:.015em;text-transform:uppercase;
+    color:#241D15;text-wrap:balance;
+  }
+  .c3 .notice h1 .rd{color:#B5121B}
+  .c3 .notice .rule-orn{display:flex;align-items:center;gap:14px;justify-content:center;margin:26px auto 22px;max-width:420px}
+  .c3 .notice .rule-orn::before,.c3 .notice .rule-orn::after{content:"";flex:1;border-top:2px solid #241D15}
+  .c3 .notice .rule-orn span{width:9px;height:9px;background:#B5121B;transform:rotate(45deg);flex:none}
+  .c3 .notice .standfirst{font-size:19.5px;line-height:1.6;max-width:36em;margin:0 auto;color:#241D15}
+  .c3 .notice .standfirst strong{color:#B5121B;font-weight:600}
+  .c3 .cta3{
+    display:inline-block;margin-top:34px;background:#B5121B;color:#F7F1E1;text-decoration:none;
+    font-weight:600;font-size:15.5px;letter-spacing:.18em;text-transform:uppercase;
+    padding:17px 38px;border:2px solid #241D15;box-shadow:5px 5px 0 #241D15;
+  }
+  .c3 .cta3:hover{background:#D01822}
+  .c3 .cta3:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #241D15}
+  .c3 .notice-foot{
+    border-top:1px solid #241D15;margin:40px 16px 16px;padding:14px 10px 12px;
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+    font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  }
+
+  /* section headers */
+  .c3 .sec3{padding:34px 0 66px}
+  .c3 .sec3-head{text-align:center;margin-bottom:40px}
+  .c3 .sec3-head .no{
+    display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;
+    border:2px solid #241D15;color:#241D15;font-weight:700;font-size:17px;margin-bottom:14px;background:#F7F1E1;
+  }
+  .c3 .sec3-head h2{font-weight:700;font-size:clamp(26px,3.4vw,38px);letter-spacing:.06em;text-transform:uppercase;color:#241D15;text-wrap:balance}
+  .c3 .sec3-head .sub3{margin-top:10px;font-size:16.5px;color:#241D15;max-width:38em;margin-left:auto;margin-right:auto}
+
+  /* operator's log */
+  .c3 .log{border:2.5px solid #241D15;background:#F7F1E1;box-shadow:0 10px 26px rgba(36,29,21,.12)}
+  .c3 .log-cap{
+    display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+    padding:14px 22px;border-bottom:2.5px solid #241D15;background:#241D15;color:#F7F1E1;
+    letter-spacing:.2em;text-transform:uppercase;font-weight:600;font-size:12.5px;
+  }
+  .c3 .log-row{display:grid;grid-template-columns:88px 130px minmax(0,1fr);border-bottom:1px solid #CBBFA4}
+  .c3 .log-row:last-child{border-bottom:none}
+  .c3 .log-time{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:#241D15;padding:15px 0 15px 22px;font-variant-numeric:tabular-nums}
+  .c3 .log-line{padding:15px 10px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#B5121B}
+  .c3 .log-line.op{color:#241D15}
+  .c3 .log-text{padding:14px 22px 14px 0;font-size:15.5px}
+  .c3 .log-text q{font-style:italic;quotes:'\201C' '\201D'}
+  .c3 .log-row.entered{background:#E8EDDD}
+  .c3 .log-row.entered .log-line{color:#2E6B4F}
+  .c3 .log-booked{
+    display:inline-block;margin-left:10px;border:2.5px solid #2E6B4F;color:#2E6B4F;font-weight:700;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;padding:3px 10px;transform:rotate(-3deg);
+  }
+  .c3 .log-note{
+    margin-top:16px;text-align:center;font-size:15px;font-style:italic;color:#241D15;
+  }
+  .c3 .log-note b{color:#B5121B;font-weight:600;font-style:normal}
+
+  /* tariff */
+  .c3 .tariff{border:2.5px solid #241D15;background:#F7F1E1;padding:38px 44px 34px;box-shadow:0 10px 26px rgba(36,29,21,.12);position:relative}
+  .c3 .tariff::before{content:"";position:absolute;inset:6px;border:1px solid #241D15;pointer-events:none}
+  .c3 .tariff-title{text-align:center;letter-spacing:.28em;text-transform:uppercase;font-weight:700;font-size:15px;padding-bottom:18px;margin-bottom:8px;border-bottom:2px solid #241D15;position:relative}
+  .c3 .t-item{padding:20px 0;border-bottom:1px solid #CBBFA4;position:relative}
+  .c3 .t-item:last-of-type{border-bottom:none}
+  .c3 .t-line{display:flex;align-items:baseline;gap:12px}
+  .c3 .t-name{font-weight:600;font-size:19px;letter-spacing:.04em;text-transform:uppercase;color:#241D15;flex:none}
+  .c3 .t-dots{flex:1;border-bottom:2px dotted #241D15;transform:translateY(-4px);min-width:30px}
+  .c3 .t-price{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px;color:#B5121B;flex:none;white-space:nowrap}
+  .c3 .t-desc{margin-top:7px;font-size:15px;color:#241D15;max-width:44em}
+  .c3 .t-terms{margin-top:20px;padding-top:16px;border-top:2px solid #241D15;font-size:13.5px;text-align:center;letter-spacing:.04em}
+  .c3 .t-terms .smallcaps{display:block;margin-bottom:6px;color:#B5121B}
+
+  /* house rules */
+  .c3 .rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .c3 .rule-card{border:2px solid #241D15;background:#F7F1E1;padding:24px 26px;display:flex;gap:18px;align-items:flex-start}
+  .c3 .rule-no{
+    font-weight:700;font-size:21px;color:#F7F1E1;background:#B5121B;border:2px solid #241D15;
+    width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex:none;
+  }
+  .c3 .rule-card h3{font-weight:600;font-size:17.5px;letter-spacing:.05em;text-transform:uppercase;color:#241D15;margin-bottom:5px}
+  .c3 .rule-card p{font-size:15px;color:#241D15}
+
+  /* closing band */
+  .c3 .close-band{background:#B5121B;color:#F7F1E1;border-top:3px solid #241D15;border-bottom:3px solid #241D15;padding:66px 0;text-align:center}
+  .c3 .close-band .smallcaps{color:#F7F1E1}
+  .c3 .close-band h2{
+    font-weight:700;font-size:clamp(30px,4.6vw,52px);letter-spacing:.04em;text-transform:uppercase;color:#FFFFFF;
+    max-width:18em;margin:14px auto 0;text-wrap:balance;line-height:1.12;
+  }
+  .c3 .close-band p{margin:16px auto 0;font-size:17.5px;color:#F7F1E1;max-width:33em}
+  .c3 .cta3.inv{background:#F7F1E1;color:#B5121B;border-color:#241D15;box-shadow:5px 5px 0 rgba(36,29,21,.85)}
+  .c3 .cta3.inv:hover{background:#FFFFFF}
+  .c3 .foot3{padding:30px 0 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .c3 .foot3 .fine3{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#241D15}
+
+  @media (max-width:760px){
+    .c3 .notice-inner{padding:36px 22px 40px}
+    .c3 .notice-band{margin:12px 12px 0;letter-spacing:.18em;font-size:11.5px}
+    .c3 .notice-foot{margin:32px 12px 12px;justify-content:center;text-align:center}
+    .c3 .log-row{grid-template-columns:64px minmax(0,1fr)}
+    .c3 .log-time{padding-left:14px}
+    .c3 .log-line{grid-column:2;padding:12px 14px 0 0}
+    .c3 .log-text{grid-column:2;padding:4px 14px 14px 0}
+    .c3 .tariff{padding:28px 20px 26px}
+    .c3 .t-line{flex-wrap:wrap}
+    .c3 .t-dots{display:none}
+    .c3 .t-price{margin-left:auto}
+    .c3 .rules{grid-template-columns:1fr}
+  }
+</style>
+
+<!-- ================= SWITCHER ================= -->
+<div class="switch">
+  <span class="sw-label">TRADES JV · OFFER MOCKUPS · SEP 2026</span>
+  <div class="sw-tabs" role="tablist" aria-label="Mockup concepts">
+    <button data-c="1" class="on">01 BOOKED SOLID</button>
+    <button data-c="2">02 MISSED NO MORE</button>
+    <button data-c="3">03 EVERY CALL ANSWERED</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONCEPT 1
+     ============================================================ -->
+<div class="concept c1 on" id="concept1">
+  <div class="topbar">
+    <div class="wrap">
+      <span class="brand"><span class="brand-mark">✓</span><span class="brand-name">Booked <em>Solid</em></span></span>
+      <span class="dom">GETBOOKEDSOLID.CO.UK</span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">For electricians &amp; heating engineers</span>
+      <h1>
+        <span class="row">Your phone rings.</span>
+        <span class="row indent">You're up a ladder.</span>
+        <span class="row hl">We book the job.</span>
+      </h1>
+      <div class="hero-under">
+        <p>Booked Solid answers your missed calls by text and WhatsApp, holds the conversation, and books the job <strong>straight into your calendar</strong>. You find out when you check your phone at dinner.</p>
+        <div class="hero-cta-cell">
+          <a class="btn" href="#c1-book">Book a 15-min call</a>
+          <span class="sub">NO PPC · NO LOCK-INS · NO JARGON</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hazard"></div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">The problem</span>
+        <h2>Every missed call is a job you paid to lose</h2>
+        <p>You spent years building a reputation so the phone would ring. Then it rings when you physically cannot answer it. The customer does not leave a voicemail. They call the next name on the list.</p>
+      </div>
+      <div class="pain-strip">
+        <div class="pain-card">
+          <span class="when">10:40 · Tuesday</span>
+          <h3>You're up a ladder</h3>
+          <p>Both hands on a consumer unit, phone buzzing in your pocket. Three rings, then silence. That was a full rewire enquiry.</p>
+        </div>
+        <div class="pain-card">
+          <span class="when">14:15 · Thursday</span>
+          <h3>You're in a loft</h3>
+          <p>Head torch on, elbow deep in a cylinder cupboard. No signal, no chance. That was a boiler swap, the biggest ticket of your month.</p>
+        </div>
+        <div class="pain-card">
+          <span class="when">19:30 · Friday</span>
+          <h3>You're at dinner</h3>
+          <p>You promised the family no phones at the table. Fair enough. But the customer with no hot water is not waiting until Monday.</p>
+        </div>
+      </div>
+      <p class="pain-punch">They don't leave a voicemail.<br>They call the next name on Google.</p>
+    </div>
+  </section>
+
+  <section class="demo">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Watch it happen</span>
+        <h2>Four minutes, no human involved</h2>
+        <p>A real evening enquiry, handled the way your best office manager would handle it, if you had one, and she worked at 6:42pm.</p>
+      </div>
+      <div class="demo-grid">
+        <div class="anno left">
+          <div class="a-item">
+            <span class="a-time">18:42</span>
+            <h3>The call you couldn't take</h3>
+            <p>Within seconds the customer gets a text from your business. They know they've reached a real firm, not a dead line.</p>
+          </div>
+          <div class="a-item">
+            <span class="a-time">18:44</span>
+            <h3>It talks the trade</h3>
+            <p>Fuse boards, boilers, EV chargers. It asks what you'd ask and takes the details you'd take.</p>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="chat-head">
+              <div class="chat-avatar">H</div>
+              <div>
+                <div class="chat-name">Hartley Electrical</div>
+                <div class="chat-sub">Booking assistant · replies in seconds</div>
+              </div>
+            </div>
+            <div class="chat-body" id="chat"></div>
+          </div>
+        </div>
+        <div class="anno">
+          <div class="a-item">
+            <span class="a-time">18:45</span>
+            <h3>Real slots, not promises</h3>
+            <p>It reads your live diary and offers actual times. The customer picks one while they're still warm.</p>
+          </div>
+          <div class="a-item">
+            <span class="a-time">18:46</span>
+            <h3>In your calendar</h3>
+            <p>Name, address, job, number. Confirmed to the customer. You see it when you're ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="hazard"></div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Do the sums</span>
+        <h2>What are missed calls costing you?</h2>
+        <p>Drag the sliders to your own numbers. Most owners haven't done this maths, and most wish they hadn't waited to.</p>
+      </div>
+      <div class="calc-grid">
+        <div class="calc-inputs">
+          <div class="ctl">
+            <label for="r1">Calls you miss per week <output id="o1">6</output></label>
+            <input type="range" id="r1" min="1" max="25" value="6">
+          </div>
+          <div class="ctl">
+            <label for="r2">Your average job value <output id="o2">£320</output></label>
+            <input type="range" id="r2" min="80" max="2000" step="20" value="320">
+          </div>
+          <div class="ctl">
+            <label for="r3">Missed callers you'd have won <output id="o3">40%</output></label>
+            <input type="range" id="r3" min="10" max="80" step="5" value="40">
+          </div>
+        </div>
+        <div class="calc-out" aria-live="polite">
+          <div class="co-row"><span class="lbl">Missed calls per month</span><span class="val" id="cv1">26</span></div>
+          <div class="co-row"><span class="lbl">Jobs lost per month</span><span class="val" id="cv2">10</span></div>
+          <div class="co-row co-big"><div><span class="lbl">Revenue walking out the door</span><span class="val" id="cv3">£3,328/mo</span></div></div>
+          <p class="co-verdict" id="cv4"></p>
+        </div>
+      </div>
+      <p class="calc-foot">ILLUSTRATIVE CALCULATOR. RESULTS DEPEND ON YOUR CALL VOLUME AND PRICES.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">What you get</span>
+        <h2>One tight package. Everything earns its keep.</h2>
+      </div>
+      <div class="ledger">
+        <div class="l-row">
+          <span class="l-no">ITEM 01</span>
+          <h3>A one-page site that converts</h3>
+          <p>Your services, your patch, your accreditations, real reviews and a tap-to-call button. Built to answer what local customers actually search for, fast on mobile, found on Google Maps.</p>
+        </div>
+        <div class="l-row">
+          <span class="l-no">ITEM 02</span>
+          <h3>Missed-call text back + booking assistant</h3>
+          <p>The core of the service. Every missed call answered by SMS or WhatsApp in seconds, qualified, and booked into your calendar. Works nights, weekends and bank holidays.</p>
+        </div>
+        <div class="l-row">
+          <span class="l-no">ITEM 03</span>
+          <h3>Review engine</h3>
+          <p>After every completed job, happy customers get a polite nudge to review you on Google. Unhappy ones get routed to you first, so problems reach you before they reach the internet.</p>
+        </div>
+      </div>
+      <div class="not-sell">
+        <h3>What we don't sell you</h3>
+        <ul>
+          <li><strong>No pay-per-click advertising.</strong> Ad budgets burn cash for firms your size. We make the enquiries you already get convert instead.</li>
+          <li><strong>No 40-page monthly reports.</strong> You get one number that matters: jobs booked that you would have missed.</li>
+          <li><strong>No long lock-ins.</strong> The service keeps your custom by working, not by contract.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Pricing</span>
+        <h2>Priced like a proper quote</h2>
+        <p>Deposit up front, balance on delivery, then a monthly plan that covers everything running. Draft v0.1, for discussion.</p>
+      </div>
+      <div class="quote-sheet">
+        <div class="qs-head">
+          <h3>Quotation</h3>
+          <span class="mono">REF BS-2026-001 · VALID 30 DAYS</span>
+        </div>
+        <div class="qs-row">
+          <div>
+            <h4>The Site</h4>
+            <p class="desc">One-page website for firms that just need to look as good as their work</p>
+          </div>
+          <p class="inc">Local-search build, hosting, SSL, security updates, content changes, managed domain</p>
+          <p class="qs-price">£495 <small>+ £100/month care</small></p>
+        </div>
+        <div class="qs-row">
+          <div>
+            <h4>Booked Solid</h4>
+            <p class="desc">The full engine. Site plus every missed call answered and booked.</p>
+          </div>
+          <p class="inc">Everything above + missed-call text back, SMS &amp; WhatsApp assistant, live calendar booking, out-of-hours cover</p>
+          <p class="qs-price">£995 <small>+ £249/month</small></p>
+        </div>
+        <div class="qs-row">
+          <div>
+            <h4>Reputation add-on</h4>
+            <p class="desc">For firms ready to own their patch on Google</p>
+          </div>
+          <p class="inc">Review requests after every job, unhappy customers routed to you first, drafted responses, monthly snapshot</p>
+          <p class="qs-price">+£99 <small>/month on either plan</small></p>
+        </div>
+        <div class="qs-foot">
+          <p class="terms">50% deposit to book the build, balance on sign-off. Hosting and domain stay managed by us so your site never lapses, expires or gets hijacked. Live inside a fortnight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="final" id="c1-book">
+    <div class="wrap">
+      <h2>Stop paying for calls <em>nobody answers</em></h2>
+      <p>Fifteen minutes on the phone. Bring last week's missed-call list if you dare. We'll show you exactly what the assistant would have done with it.</p>
+      <a class="btn" href="#concept1">Book a 15-min call</a>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="wrap">
+      <span class="brand"><span class="brand-mark">✓</span><span class="brand-name">Booked <em>Solid</em></span></span>
+      <span class="fine">CONCEPT 01 · JOB SHEET INDUSTRIAL · GETBOOKEDSOLID.CO.UK (AVAILABLE, CHECKED 2 SEP)</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONCEPT 2
+     ============================================================ -->
+<div class="concept c2" id="concept2">
+
+  <div class="sheet ruled">
+    <span class="punch p1"></span><span class="punch p2"></span>
+    <div class="pad-head">
+      <div class="pad-brand">Missed <span>No More</span></div>
+      <div class="pad-no">missednomore.co.uk &nbsp;·&nbsp; SHEET No. 0001</div>
+    </div>
+    <div class="form-title">Lost Work Report · For the attention of the owner</div>
+    <div class="frow"><span class="flabel">Firm:</span><span class="fval">Hartley Electrical Ltd</span><span class="flabel">Trade:</span><span class="fval">Electrical / Heating</span></div>
+    <div class="frow"><span class="flabel">Week ending:</span><span class="fval">Fri 28 Aug</span><span class="flabel">Calls missed:</span><span class="fval red">11</span></div>
+    <div class="frow"><span class="flabel">Voicemails left by customers:</span><span class="fval red">0</span></div>
+    <div class="frow"><span class="flabel">Estimated work lost:</span><span class="fval red">£2,840</span></div>
+    <div class="stamp">Preventable</div>
+    <p class="headline">Every one of these calls could have been <mark>answered, qualified and booked</mark> without you touching your phone.</p>
+    <p class="body-copy">We put a booking assistant on your number. Missed calls get a text back in seconds, the conversation happens over SMS or WhatsApp, and the job lands in your calendar. You stay on the tools.</p>
+    <p style="margin-top:18px"><span class="scrawl">↓ this is what it looks like from the customer's side</span></p>
+    <a class="cta-btn" href="#concept2">Book a 15-minute call</a>
+  </div>
+
+  <div class="sheet" style="padding-top:44px">
+    <span class="punch p1"></span><span class="punch p2"></span>
+    <div class="form-title" style="text-align:center">Exhibit A · Transcript of an evening enquiry</div>
+    <div class="receipt">
+      <div class="r-head">HARTLEY ELECTRICAL · CALL LOG</div>
+      <div class="r-line"><span class="r-who">18:42</span><span class="r-msg">Missed call from 07700 900482. No voicemail.</span></div>
+      <div class="r-line"><span class="r-who">ASSISTANT</span><span class="r-msg">Hi, it's the booking assistant for Hartley Electrical. Sorry we missed your call, Dan's on a job. What do you need?</span></div>
+      <div class="r-line"><span class="r-who cust">CUSTOMER</span><span class="r-msg">My fuse board keeps tripping, kitchen circuit. Need someone this week</span></div>
+      <div class="r-line"><span class="r-who">ASSISTANT</span><span class="r-msg">Worth sorting quickly. What's your postcode? I'll check when Dan can get to you.</span></div>
+      <div class="r-line"><span class="r-who cust">CUSTOMER</span><span class="r-msg">BR3 4QT</span></div>
+      <div class="r-line"><span class="r-who">ASSISTANT</span><span class="r-msg">He's in Beckenham Thursday. 08:30 or 15:00, which suits?</span></div>
+      <div class="r-line"><span class="r-who cust">CUSTOMER</span><span class="r-msg">8.30 please</span></div>
+      <div class="r-stamp">Booked ✓ Thu 08:30</div>
+    </div>
+    <p style="text-align:center;margin-top:20px"><span class="scrawl">4 minutes. Dan was eating his tea.</span></p>
+  </div>
+
+  <div class="sheet">
+    <span class="punch p1"></span><span class="punch p2"></span>
+    <div class="form-title">The service · In triplicate</div>
+    <p class="carbon-note">One package, three parts. Keep all copies.</p>
+    <div class="carbon">
+      <div class="copy-sheet white">
+        <div class="cs-tag">Top copy · The shopfront</div>
+        <div class="cs-title">One-page website</div>
+        <p>Your services, your patch, your accreditations and real reviews. Fast on mobile, found on Google Maps, tap-to-call. Hosted, secured and kept up to date by us.</p>
+      </div>
+      <div class="copy-sheet yellow">
+        <div class="cs-tag">Yellow copy · The engine</div>
+        <div class="cs-title">Missed-call assistant</div>
+        <p>Text back in seconds, conversation by SMS or WhatsApp, real slots offered from your live calendar, job booked and confirmed. Nights, weekends, bank holidays.</p>
+      </div>
+      <div class="copy-sheet pink">
+        <div class="cs-tag">Pink copy · The reputation</div>
+        <div class="cs-title">Review engine</div>
+        <p>Happy customers nudged to review you on Google after every job. Unhappy ones routed to you first, before they reach the internet.</p>
+      </div>
+    </div>
+    <table class="price-table">
+      <tr><th>Item</th><th>One-off</th><th style="text-align:right">Monthly</th></tr>
+      <tr><td>The Site · build + care plan</td><td>£495</td><td class="num">£100</td></tr>
+      <tr><td>Missed No More · site + assistant + booking</td><td>£995</td><td class="num">£249</td></tr>
+      <tr><td>Reputation add-on</td><td>included</td><td class="num">+£99</td></tr>
+    </table>
+    <p style="margin-top:16px;font-size:13.5px">Terms: 50% deposit to start, balance on sign-off. Hosting and domain managed by us so nothing lapses or gets hijacked. No pay-per-click, ever. Pricing draft v0.1, for discussion.</p>
+    <a class="cta-btn" href="#concept2">Book a 15-minute call</a>
+    <div class="pad-foot">
+      <span>Concept 02 · Paper job pad</span>
+      <span>missednomore.co.uk (available, checked 2 Sep)</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONCEPT 3 · THE OPERATOR
+     ============================================================ -->
+<div class="concept c3" id="concept3">
+  <div class="masthead">
+    <div class="wrap">
+      <span class="wordmark">
+        <svg class="dial-mini" width="38" height="38" viewBox="0 0 220 220" aria-hidden="true">
+          <circle cx="110" cy="110" r="104" fill="#241D15"/>
+          <circle cx="110" cy="110" r="96" fill="none" stroke="#F2EBDA" stroke-width="3"/>
+          <g fill="#F2EBDA">
+            <circle cx="44.2" cy="148" r="12"/><circle cx="34" cy="110" r="12"/><circle cx="44.2" cy="72" r="12"/>
+            <circle cx="72" cy="44.2" r="12"/><circle cx="110" cy="34" r="12"/><circle cx="148" cy="44.2" r="12"/>
+            <circle cx="175.8" cy="72" r="12"/><circle cx="186" cy="110" r="12"/><circle cx="175.8" cy="148" r="12"/>
+            <circle cx="148" cy="175.8" r="12"/>
+          </g>
+          <circle cx="110" cy="110" r="40" fill="#B5121B"/>
+        </svg>
+        <span class="wm-text">Every Call <b>Answered</b></span>
+      </span>
+      <span class="mast-dom">EVERYCALLANSWERED.CO.UK</span>
+    </div>
+  </div>
+
+  <div class="notice-outer">
+    <div class="wrap">
+      <div class="notice">
+        <div class="notice-band">Public notice · To all electrical &amp; heating trades</div>
+        <div class="notice-inner">
+          <div class="dial-wrap">
+            <svg width="150" height="150" viewBox="0 0 220 220" role="img" aria-label="Rotary telephone dial">
+              <circle cx="110" cy="110" r="106" fill="#241D15"/>
+              <circle cx="110" cy="110" r="97" fill="none" stroke="#F2EBDA" stroke-width="2.5"/>
+              <g fill="#F2EBDA">
+                <circle cx="44.2" cy="148" r="15"/><circle cx="34" cy="110" r="15"/><circle cx="44.2" cy="72" r="15"/>
+                <circle cx="72" cy="44.2" r="15"/><circle cx="110" cy="34" r="15"/><circle cx="148" cy="44.2" r="15"/>
+                <circle cx="175.8" cy="72" r="15"/><circle cx="186" cy="110" r="15"/><circle cx="175.8" cy="148" r="15"/>
+                <circle cx="148" cy="175.8" r="15"/>
+              </g>
+              <g fill="#241D15" font-family="Jost,sans-serif" font-size="17" font-weight="600" text-anchor="middle">
+                <text x="44.2" y="154">1</text><text x="34" y="116">2</text><text x="44.2" y="78">3</text>
+                <text x="72" y="50">4</text><text x="110" y="40">5</text><text x="148" y="50">6</text>
+                <text x="175.8" y="78">7</text><text x="186" y="116">8</text><text x="175.8" y="154">9</text>
+                <text x="148" y="181.8">0</text>
+              </g>
+              <circle cx="110" cy="110" r="42" fill="#B5121B"/>
+              <g fill="#F2EBDA" font-family="Jost,sans-serif" text-anchor="middle">
+                <text x="110" y="105" font-size="15" font-weight="700" letter-spacing="2">EVERY</text>
+                <text x="110" y="124" font-size="13" font-weight="600" letter-spacing="1">CALL</text>
+              </g>
+              <rect x="103" y="188" width="14" height="24" rx="3" fill="#B5121B"/>
+            </svg>
+          </div>
+          <h1>The operator is<br>back <span class="rd">on duty</span></h1>
+          <div class="rule-orn"><span></span></div>
+          <p class="standfirst">Every call to your line answered within seconds, by day, by night, and clean through Sunday dinner. Particulars taken, the caller looked after, and the appointment <strong>entered directly into your diary</strong>.</p>
+          <a class="cta3" href="#c3-close">Book a 15-minute call</a>
+        </div>
+        <div class="notice-foot">
+          <span>For electricians &amp; heating engineers</span>
+          <span>No call unanswered · Est. 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec3">
+    <div class="wrap">
+      <div class="sec3-head">
+        <span class="no">I</span>
+        <h2>Extract from the operator's log</h2>
+        <p class="sub3">Friday evening. The tradesman at his table, the phone face down, and a customer with a tripping fuse board on the line.</p>
+      </div>
+      <div class="log">
+        <div class="log-cap"><span>Line: Hartley Electrical</span><span>Operator on duty</span></div>
+        <div class="log-row">
+          <span class="log-time">18:42</span>
+          <span class="log-line">Incoming</span>
+          <p class="log-text">Call from 07700 900482. Unanswered on the tradesman's set. No voicemail left. Operator engaged.</p>
+        </div>
+        <div class="log-row">
+          <span class="log-time">18:42</span>
+          <span class="log-line op">Operator</span>
+          <p class="log-text">Text dispatched: <q>Hi, it's the booking assistant for Hartley Electrical. Sorry we missed your call, Dan's on a job. What do you need?</q></p>
+        </div>
+        <div class="log-row">
+          <span class="log-time">18:44</span>
+          <span class="log-line">Caller</span>
+          <p class="log-text"><q>My fuse board keeps tripping, kitchen circuit. Need someone this week.</q></p>
+        </div>
+        <div class="log-row">
+          <span class="log-time">18:45</span>
+          <span class="log-line op">Operator</span>
+          <p class="log-text">Postcode taken: BR3 4QT. Diary consulted. Thursday offered, 08:30 or 15:00.</p>
+        </div>
+        <div class="log-row">
+          <span class="log-time">18:46</span>
+          <span class="log-line">Caller</span>
+          <p class="log-text"><q>8.30 please.</q></p>
+        </div>
+        <div class="log-row entered">
+          <span class="log-time">18:46</span>
+          <span class="log-line">Entered</span>
+          <p class="log-text">Appointment entered: Thursday 08:30, fuse board tripping, BR3 4QT. Confirmation issued to the caller. <span class="log-booked">Booked</span></p>
+        </div>
+      </div>
+      <p class="log-note">The tradesman was at his dinner throughout. He learned of the appointment at 19:20, <b>with pudding</b>.</p>
+    </div>
+  </div>
+
+  <div class="sec3" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec3-head">
+        <span class="no">II</span>
+        <h2>Tariff of services</h2>
+        <p class="sub3">Plain rates, plainly stated. Draft v0.1, for discussion.</p>
+      </div>
+      <div class="tariff">
+        <div class="tariff-title">Schedule of charges</div>
+        <div class="t-item">
+          <div class="t-line"><span class="t-name">The Website</span><span class="t-dots"></span><span class="t-price">£495, then £100 monthly</span></div>
+          <p class="t-desc">One page, properly made. Your services, your patch, your accreditations and real reviews. Hosted, secured and kept current in our care.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-line"><span class="t-name">The Operator</span><span class="t-dots"></span><span class="t-price">£995, then £249 monthly</span></div>
+          <p class="t-desc">The full service. Every missed call answered by SMS or WhatsApp within seconds, particulars taken, appointments entered into your live diary. On duty nights, weekends and bank holidays.</p>
+        </div>
+        <div class="t-item">
+          <div class="t-line"><span class="t-name">The Reputation</span><span class="t-dots"></span><span class="t-price">£99 monthly</span></div>
+          <p class="t-desc">Reviews requested after every completed job. The dissatisfied routed to you first, before they reach the internet.</p>
+        </div>
+        <div class="t-terms">
+          <span class="smallcaps">Conditions of engagement</span>
+          Half the fee deposits the work, the balance on sign-off. Hosting and the domain remain in our keeping, so neither may lapse nor fall into a rival's hands. No pay-per-click advertising is sold at this house, at any price.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec3" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec3-head">
+        <span class="no">III</span>
+        <h2>The rules of this house</h2>
+      </div>
+      <div class="rules">
+        <div class="rule-card">
+          <span class="rule-no">1</span>
+          <div>
+            <h3>No advertising budgets burnt</h3>
+            <p>Pay-per-click is not sold here. For a firm of one to ten, the cheapest revenue is the enquiry you already had, answered properly.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-no">2</span>
+          <div>
+            <h3>One number reported</h3>
+            <p>No 40-page decks. Each month you get the figure that matters: jobs entered in the diary that would otherwise have been lost.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-no">3</span>
+          <div>
+            <h3>No client held by contract</h3>
+            <p>The service keeps your custom by working. If it stops earning its keep, you leave, and we hand everything over properly.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-no">4</span>
+          <div>
+            <h3>Registered trades only</h3>
+            <p>NICEIC, NAPIT or Gas Safe registered, or working toward it. We check, because your customers do.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="close-band" id="c3-close">
+    <div class="wrap">
+      <span class="smallcaps">By order of the management</span>
+      <h2>Let no job be lost for want of an answer</h2>
+      <p>Fifteen minutes on the telephone, fittingly. Bring last week's missed calls and we'll show you what the operator would have made of them.</p>
+      <a class="cta3 inv" href="#concept3">Book a 15-minute call</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="foot3">
+      <span class="fine3">CONCEPT 03 · THE OPERATOR</span>
+      <span class="fine3">EVERYCALLANSWERED.CO.UK (AVAILABLE, CHECKED 2 SEP)</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---- concept switcher ----
+  const tabs=[...document.querySelectorAll('.sw-tabs button')];
+  const concepts={1:document.getElementById('concept1'),2:document.getElementById('concept2'),3:document.getElementById('concept3')};
+  function show(n){
+    tabs.forEach(b=>b.classList.toggle('on',b.dataset.c===String(n)));
+    Object.entries(concepts).forEach(([k,el])=>el.classList.toggle('on',k===String(n)));
+    window.scrollTo({top:0,behavior:'auto'});
+    try{history.replaceState(null,'','#m'+n)}catch(e){}
+  }
+  tabs.forEach(b=>b.addEventListener('click',()=>show(b.dataset.c)));
+  const m=(location.hash.match(/^#m([123])$/)||[])[1];if(m)show(m);
+
+  // ---- concept 1 chat animation ----
+  const chat=document.getElementById('chat');
+  const scriptMsgs=[
+    {type:'sys',text:'Missed call · 18:42 · 07700 900482'},
+    {type:'biz',text:"Hi, it's the booking assistant for Hartley Electrical. Sorry we missed your call, Dan's on a job. What do you need?",t:'18:42'},
+    {type:'cust',text:"My fuse board keeps tripping, kitchen circuit. Need someone this week",t:'18:44'},
+    {type:'biz',text:"That's worth sorting quickly. What's your postcode? I'll check when Dan can get to you.",t:'18:44'},
+    {type:'cust',text:"BR3 4QT",t:'18:45'},
+    {type:'biz',text:"He's in Beckenham Thursday. I can book you 08:30 or 15:00, which suits?",t:'18:45'},
+    {type:'cust',text:"8.30 please",t:'18:46'},
+    {type:'card'}
+  ];
+  function makeNode(msg){
+    if(msg.type==='sys'){const d=document.createElement('div');d.className='sys-chip';d.textContent=msg.text;return d}
+    if(msg.type==='card'){
+      const d=document.createElement('div');d.className='booked-card';
+      d.innerHTML='<div class="bk-title">✓ Booked into Dan\'s calendar</div><div class="bk-line">THU 08:30 · FUSE BOARD TRIPPING</div><div class="bk-line">BR3 4QT · 07700 900482</div>';
+      return d;
+    }
+    const d=document.createElement('div');
+    d.className='bubble '+(msg.type==='biz'?'from-biz':'from-cust');
+    d.innerHTML=msg.text+'<span class="t">'+msg.t+'</span>';
+    return d;
+  }
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function runChat(){
+    chat.innerHTML='';let i=0;
+    function next(){
+      if(i>=scriptMsgs.length){setTimeout(runChat,6000);return}
+      const node=makeNode(scriptMsgs[i]);
+      chat.appendChild(node);
+      requestAnimationFrame(()=>requestAnimationFrame(()=>node.classList.add('show')));
+      while(chat.children.length>7)chat.removeChild(chat.firstChild);
+      i++;setTimeout(next,i===1?900:1400);
+    }
+    next();
+  }
+  if(reduced){
+    scriptMsgs.forEach(msg=>{const n=makeNode(msg);n.classList.add('show');chat.appendChild(n)});
+    while(chat.children.length>7)chat.removeChild(chat.firstChild);
+  }else{runChat()}
+
+  // ---- concept 1 calculator ----
+  const r1=document.getElementById('r1'),r2=document.getElementById('r2'),r3=document.getElementById('r3');
+  const o1=document.getElementById('o1'),o2=document.getElementById('o2'),o3=document.getElementById('o3');
+  const v1=document.getElementById('cv1'),v2=document.getElementById('cv2'),v3=document.getElementById('cv3'),v4=document.getElementById('cv4');
+  const fmt=n=>'£'+Math.round(n).toLocaleString('en-GB');
+  function calc(){
+    const missed=+r1.value,job=+r2.value,win=+r3.value/100;
+    o1.textContent=missed;o2.textContent=fmt(job);o3.textContent=Math.round(win*100)+'%';
+    const perMonth=missed*4.33,jobs=perMonth*win,lost=jobs*job;
+    v1.textContent=Math.round(perMonth);
+    v2.textContent=Math.round(jobs);
+    v3.textContent=fmt(lost)+'/mo';
+    const saved=Math.round(jobs);
+    if(lost<=249){
+      v4.textContent='Booked Solid costs £249 a month. At these numbers it’s marginal, but one decent boiler job or rewire a month changes the picture entirely.';
+    }else{
+      v4.innerHTML='Booked Solid costs £249 a month. At your numbers, <strong>it pays for itself with the first job it saves</strong>'+(saved>1?', and the other '+(saved-1)+' '+(saved-1===1?'is':'are')+' profit.':'.');
+    }
+  }
+  [r1,r2,r3].forEach(r=>r.addEventListener('input',calc));
+  calc();
+</script>
