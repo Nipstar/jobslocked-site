@@ -20,12 +20,28 @@ You don't need more calls. You need to stop losing the ones you already paid for
 - **Your callback is too late.** By the time you're off the ladder, they've had a quote from someone who picked up. You're now the second opinion, if you're anything.
 - **Every missed call is your ad money, burned.** Google, Angi, Yelp, the truck wrap — you paid for that ring. Voicemail throws the receipt away.
 
+## What are missed calls costing you?
+
+Drag the sliders to your own numbers. Most owners have never done this math, and most wish they hadn't waited to. Inputs: calls you miss per week (default 6), your average job value (default $850), missed callers you'd have won (default 40%). Outputs: missed calls per month (calls per week × 4.33), jobs lost per month, and revenue walking out the door per month. At the defaults that is 26 missed calls, 10 lost jobs and $8,833 a month. Verdict: Never Miss a Call is $449 a month — at those numbers it pays for itself with the first job it saves, and the rest are profit. Illustrative; results depend on your call volume and prices. One-time setup not included. CTA: get your real number on a 15-minute call.
+
 ## What happens now when your phone rings
 
 1. **It answers.** Second ring, every time. Your business name, a calm voice, and the first question: "What's going on at the house?"
 2. **It holds the conversation.** Address, what's wrong, how long it's been going on, urgent or can it wait. The questions you'd ask — without you asking them.
 3. **It books the job.** Reads your live calendar, offers real slots, locks one in. Confirmation text to them. Summary text to you.
 4. **It follows up.** Hung up early? Text-back inside a minute. Sent a form at 11 PM? Callback inside 60 seconds. Texted or WhatsApped? Answered.
+
+## Four minutes. Nobody had to climb down.
+
+A real evening call, handled the way your best office manager would handle it — if you had one, and she worked at 7:42 PM. Example transcript for a fictional contractor, Ridgeline Home Services:
+
+- 7:42 PM — Incoming call, answered on the second ring. Receptionist: "Ridgeline Home Services, how can I help? Mike's on a job — I can get you booked. What's going on at the house?"
+- 7:43 PM — Caller: "There's water coming through the ceiling downstairs. It's getting worse. Need someone this week." Receptionist: "That's worth getting to quickly. What's the address? I'll check when Mike can get out to you."
+- 7:44 PM — Caller gives the address.
+- 7:45 PM — Receptionist: "He's in your area Thursday. I can book you 8:30 AM or 3:00 PM — which works?" Caller: "8:30, please."
+- Booked into Mike's calendar: Thursday 8:30 AM, water through ceiling. Confirmation text to the caller, summary text to Mike. Mike found out at 8:20, with dessert.
+
+What each step shows: answered on the second ring in your business name; it asks what you'd ask and takes the details you'd take; it reads your live calendar and offers real slots; the job lands in your calendar, confirmed to the caller and texted to you.
 
 ## Every plan starts here. No exceptions.
 
@@ -74,6 +90,12 @@ One-time setup on every plan. Minutes beyond the allowance billed per minute —
 
 It won't pretend to be you. It won't quote a price you didn't give it. It won't promise a time your calendar doesn't have. And it won't replace the people you've already got — it catches what they can't, when they can't.
 
+## What we don't sell you
+
+- No pay-per-click. Ad budgets burn cash for a shop your size. We make the calls you already get turn into jobs.
+- No 40-page reports. You get one number that matters: jobs booked that you would have missed.
+- No lock-ins. Month to month. The service keeps your business by working, not by contract.
+
 ## Straight answers (FAQ)
 
 **Will customers know it's not a person?** If they ask, it tells them. Most don't ask — they've got a problem in the house and they want someone booked. It sounds calm, gets the address, the problem, and a time, and stops there.
@@ -90,7 +112,7 @@ It won't pretend to be you. It won't quote a price you didn't give it. It won't 
 
 ## Stop losing the calls you already paid for.
 
-Fifteen minutes. You describe a typical job, we show you the receptionist taking that exact call. Book at https://jobslocked.com/book/ — slots mornings and lunchtimes, Eastern.
+Fifteen minutes. Bring last week's missed-call list if you dare — we'll show you exactly what the receptionist would have done with every one of them. Book at https://jobslocked.com/book/ — slots mornings and lunchtimes, Eastern.
 
 ---
 
@@ -108,6 +130,8 @@ Every call answered on the second ring. Every enquiry replied to inside a minute
 - 12:05 PM — Web form comes in. Called back inside 60 seconds. Referral on the line, booked.
 - 3:10 PM — Morning job marked done. Customer gets a text with a direct link to your Google review page. Five stars by 3:40.
 - 6:40 PM — Your phone shows four bookings, one new review and zero voicemails. You never picked up once.
+
+**What are missed calls costing you?** Same missed-call cost calculator as the home page (calls missed per week × 4.33 × share you'd have won × average job value). The verdict on this page compares the result to Never Miss a Call at $449 a month.
 
 **What you get:**
 - AI receptionist answering every call, 24/7, in your business name
@@ -138,6 +162,8 @@ Answering the call is where most contractors lose. Following up is where the res
 - 11:00 AM — Monday's caller who said 'let me think about it' gets a text: 'Still want that looked at? We've got Wednesday open.' Booked.
 - 3:30 PM — You open the pipeline. Nine enquiries this week, six booked, two chasing, one closed-lost. You know exactly where the money is.
 
+**What are missed calls costing you?** Same missed-call cost calculator as the home page (calls missed per week × 4.33 × share you'd have won × average job value). The verdict on this page compares the result to Book Every Job at $649 a month.
+
 **What you get:**
 - Everything in Never Miss a Call
 - Website chat answered by the same receptionist
@@ -163,6 +189,8 @@ Every plan asks for the review. This one does everything after it: replies in yo
 - 4:20 PM — A 3-star lands from a job two crews ago. You get a text with the review and a suggested reply before it sits there overnight.
 - Next Tuesday — A homeowner finds you on Google, sees 47 reviews instead of 9, hits 'Book a visit' on your site, and picks a slot. You find out by text.
 
+**What are missed calls costing you?** Same missed-call cost calculator as the home page (calls missed per week × 4.33 × share you'd have won × average job value). The verdict on this page compares the result to Win the Job, Win the Review at $949 a month.
+
 **What you get:**
 - Everything in Book Every Job
 - Replies to every Google review, in your voice, within a day
@@ -174,6 +202,42 @@ Every plan asks for the review. This one does everything after it: replies in yo
 
 ---
 
+## Cost calculator — https://jobslocked.com/cost/
+
+# Every missed call is a job you paid to lose.
+
+You spent money so the phone would ring — Google, Angi, Yelp, the truck wrap. Then it rings when you physically can't answer it. Put your numbers in and see what that's costing.
+
+## What are missed calls costing you?
+
+Drag the sliders to your own numbers. Most owners have never done this math, and most wish they hadn't waited to. Inputs: calls you miss per week (default 6), your average job value (default $850), missed callers you'd have won (default 40%). Outputs: missed calls per month (calls per week × 4.33), jobs lost per month, and revenue walking out the door per month. At the defaults that is 26 missed calls, 10 lost jobs and $8,833 a month. Verdict: Never Miss a Call is $449 a month — at those numbers it pays for itself with the first job it saves, and the rest are profit. Illustrative; results depend on your call volume and prices. One-time setup not included. CTA: get your real number on a 15-minute call.
+
+## When it happens
+
+- 10:40 AM, Tuesday — You're in a crawlspace. Both hands busy, phone buzzing in your pocket. Three rings, then silence. That was a full-system replacement call.
+- 2:15 PM, Thursday — You're on a job site with no signal. By the time you're back in the truck the missed-call badge says 3. None of them left a voicemail.
+- 7:30 PM, Friday — You're at dinner. You promised the family no phones at the table. Fair enough. But the homeowner with no heat isn't waiting until Monday.
+
+They don't leave a voicemail. They call the next name on Google.
+
+## Four minutes. Nobody had to climb down.
+
+A real evening call, handled the way your best office manager would handle it — if you had one, and she worked at 7:42 PM. Example transcript for a fictional contractor, Ridgeline Home Services:
+
+- 7:42 PM — Incoming call, answered on the second ring. Receptionist: "Ridgeline Home Services, how can I help? Mike's on a job — I can get you booked. What's going on at the house?"
+- 7:43 PM — Caller: "There's water coming through the ceiling downstairs. It's getting worse. Need someone this week." Receptionist: "That's worth getting to quickly. What's the address? I'll check when Mike can get out to you."
+- 7:44 PM — Caller gives the address.
+- 7:45 PM — Receptionist: "He's in your area Thursday. I can book you 8:30 AM or 3:00 PM — which works?" Caller: "8:30, please."
+- Booked into Mike's calendar: Thursday 8:30 AM, water through ceiling. Confirmation text to the caller, summary text to Mike. Mike found out at 8:20, with dessert.
+
+What each step shows: answered on the second ring in your business name; it asks what you'd ask and takes the details you'd take; it reads your live calendar and offers real slots; the job lands in your calendar, confirmed to the caller and texted to you.
+
+## Stop losing the calls you already paid for.
+
+Fifteen minutes. Bring last week's missed-call list if you dare — we'll show you exactly what the receptionist would have done with every one of them. Book at https://jobslocked.com/book/ — slots mornings and lunchtimes, Eastern.
+
+---
+
 ## Book a call — https://jobslocked.com/book/
 
-Book a 15-minute call. Pick a slot — you describe a typical job, we show you the receptionist taking that exact call. Slots mornings and lunchtimes, Eastern. No pitch deck. You'll hear the receptionist take a call.
+Book a 15-minute call. Pick a slot. Bring last week's missed-call list if you dare — we'll show you exactly what the receptionist would have done with every one of them. Slots mornings and lunchtimes, Eastern. No pitch deck. You'll hear the receptionist take a call.

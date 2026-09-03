@@ -36,6 +36,9 @@ ErrorDocument 404 /404.html
   ForceType 'text/plain; charset=utf-8'
 </Files>
 
+# --- short links used in outreach ---
+Redirect 301 /call /book/
+
 # --- keep repo housekeeping files off the web ---
 RedirectMatch 404 ^/reference(/|$)
 RedirectMatch 404 ^/qa(/|$)

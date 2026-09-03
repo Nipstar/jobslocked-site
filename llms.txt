@@ -8,8 +8,9 @@ Every plan includes the same floor: AI receptionist answering every call 24/7, l
 
 ## Pages
 
-- [Home](https://jobslocked.com/): The problem (missed calls are lost jobs), how the receptionist works, what every plan includes, the three plans, and FAQ
-- [Book a 15-minute call](https://jobslocked.com/book/): Booking calendar — pick a slot and hear the receptionist take a typical call
+- [Home](https://jobslocked.com/): The problem (missed calls are lost jobs), a missed-call cost calculator, how the receptionist works, a four-minute demo call, what every plan includes, the three plans, what JobsLocked does not sell (no pay-per-click, no long reports, no lock-ins), and FAQ
+- [Cost calculator](https://jobslocked.com/cost/): Missed-call cost calculator — calls missed per week × average job value × share you'd have won = revenue lost per month, with a demo of the receptionist taking an evening call
+- [Book a 15-minute call](https://jobslocked.com/book/): Booking calendar — pick a slot; bring last week's missed-call list and hear what the receptionist would have done with it
 - [Privacy Policy](https://jobslocked.com/privacy/): How JobsLocked handles your information
 - [Terms of Service](https://jobslocked.com/terms/): Terms governing use of the service
 

@@ -94,3 +94,64 @@
     openModal(el);
   });
 })();
+
+// ---- missed-call cost calculator (one per page; price + plan name come from the section) ----
+(function () {
+  'use strict';
+  var sec = document.querySelector('.calc');
+  if (!sec) return;
+  var price = +sec.dataset.price, plan = sec.dataset.plan;
+  var miss = sec.querySelector('#c-miss'), job = sec.querySelector('#c-job'), win = sec.querySelector('#c-win');
+  var fmt = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+  var tracked = false;
+  function calc() {
+    var m = +miss.value, j = +job.value, w = +win.value / 100;
+    var perMonth = m * 4.33, jobs = perMonth * w, lost = jobs * j, n = Math.round(jobs);
+    sec.querySelector('[for=c-miss] output').textContent = m;
+    sec.querySelector('[for=c-job] output').textContent = fmt(j);
+    sec.querySelector('[for=c-win] output').textContent = Math.round(w * 100) + '%';
+    sec.querySelector('.v-calls').textContent = Math.round(perMonth);
+    sec.querySelector('.v-jobs').textContent = n;
+    sec.querySelector('.v-lost').textContent = fmt(lost) + '/mo';
+    var v = sec.querySelector('.verdict');
+    if (lost <= price) {
+      v.textContent = plan + ' is ' + fmt(price) + ' a month. At these numbers it’s marginal — but one decent install or repair a month changes the picture entirely.';
+    } else {
+      v.innerHTML = plan + ' is ' + fmt(price) + ' a month. At your numbers, <strong>it pays for itself with the first job it saves</strong>' +
+        (n > 1 ? ', and the other ' + (n - 1) + (n - 1 === 1 ? ' is' : ' are') + ' profit.' : '.');
+    }
+  }
+  [miss, job, win].forEach(function (r) {
+    r.addEventListener('input', function () {
+      calc();
+      if (!tracked && window.dataLayer) { tracked = true; window.dataLayer.push({ event: 'calc_change' }); }
+    });
+  });
+  calc();
+})();
+
+// ---- phone demo: transcript is static HTML; reveal it in sequence, keep 7 visible, loop ----
+(function () {
+  'use strict';
+  var demo = document.querySelector('.demo');
+  if (!demo || matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var nodes = [].slice.call(demo.querySelectorAll('.chat > *'));
+  function play() {
+    var i = 0;
+    nodes.forEach(function (n) { n.classList.remove('on'); n.hidden = false; });
+    function next() {
+      nodes[i].classList.add('on');
+      if (i >= 7) nodes[i - 7].hidden = true;
+      i++;
+      setTimeout(i < nodes.length ? next : play, i < nodes.length ? 1400 : 6000);
+    }
+    setTimeout(next, 900);
+  }
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    io.disconnect();
+    demo.classList.add('play');
+    play();
+  }, { threshold: 0.3 });
+  io.observe(demo);
+})();

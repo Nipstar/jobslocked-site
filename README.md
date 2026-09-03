@@ -7,14 +7,15 @@ Static site for JobsLocked — AI receptionist, booking and review service for U
 ```
 index.html                          home
 plans/<slug>/index.html             the three plan pages
+cost/index.html                     missed-call cost calculator landing page (outreach link)
 book/index.html                     booking page (CRM embed, eager)
 privacy/ terms/                     placeholders — TODO bodies, text to come
 404.html                            error page (wired via .htaccess)
 assets/site.css                     all styles (shared across every page)
-assets/site.js                      booking modal + dataLayer events
+assets/site.js                      booking modal, cost calculator, phone demo, dataLayer events
 fonts/                              self-hosted Archivo + Inter (woff2)
 robots.txt sitemap.xml llms.txt llms-full.txt
-.htaccess                           404, security headers, caching, llms.txt mime
+.htaccess                           404, `/call` redirect, security headers, caching, llms.txt mime
 reference/                          original mockups + og.html template (blocked from web)
 logo.png og-default.png             schema logo / social share image
 ```
@@ -22,7 +23,7 @@ logo.png og-default.png             schema logo / social share image
 ## Editing
 
 - **Copy lives in the HTML.** Header, footer and the 6-item FAQ are duplicated on every page — when you change one of those blocks, change it on **all pages** (index, 3 plan pages, book, privacy, terms). Grep for a phrase to find every copy.
-- Plan prices/minutes appear in: the plan page hero + glance block + JSON-LD, the home pricing cards + home JSON-LD offers, and `llms.txt` / `llms-full.txt`. Update all of them together.
+- Plan prices/minutes appear in: the plan page hero + glance block + JSON-LD, the home pricing cards + home JSON-LD offers, the calculator section's `data-price` / `data-plan` (home, each plan page, `/cost/`), and `llms.txt` / `llms-full.txt`. Update all of them together.
 - When you edit `assets/site.css` or `assets/site.js`, bump the `?v=N` query on their <link>/<script> tags in ALL pages — they are cached 30 days and repeat visitors keep the old file otherwise.
 - When you edit a page, bump its `dateModified` in the JSON-LD and its `<lastmod>` in `sitemap.xml`.
 - FAQ text in the JSON-LD `FAQPage` must stay verbatim-identical to the visible `<details>` text.
