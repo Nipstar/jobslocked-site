@@ -143,7 +143,7 @@
       nodes[i].classList.add('on');
       if (i >= 7) nodes[i - 7].hidden = true;
       i++;
-      setTimeout(i < nodes.length ? next : play, i < nodes.length ? 1400 : 6000);
+      setTimeout(i < nodes.length ? next : play, i < nodes.length ? 1400 : 2500);
     }
     setTimeout(next, 400);
   }
