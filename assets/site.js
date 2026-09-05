@@ -145,13 +145,14 @@
       i++;
       setTimeout(i < nodes.length ? next : play, i < nodes.length ? 1400 : 6000);
     }
-    setTimeout(next, 900);
+    setTimeout(next, 400);
   }
+  // watch the phone, not the section: on mobile the section is several screens tall
   var io = new IntersectionObserver(function (entries) {
     if (!entries[0].isIntersecting) return;
     io.disconnect();
     demo.classList.add('play');
     play();
-  }, { threshold: 0.3 });
-  io.observe(demo);
+  }, { threshold: 0.4 });
+  io.observe(demo.querySelector('.phone'));
 })();
