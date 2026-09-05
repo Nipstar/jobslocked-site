@@ -130,7 +130,7 @@
   calc();
 })();
 
-// ---- phone demo: transcript is static HTML; reveal it in sequence, keep 7 visible, loop ----
+// ---- phone demo: transcript is static HTML; reveal it in sequence, keep 7 visible, hold on the last card ----
 (function () {
   'use strict';
   var demo = document.querySelector('.demo');
@@ -143,7 +143,7 @@
       nodes[i].classList.add('on');
       if (i >= 7) nodes[i - 7].hidden = true;
       i++;
-      setTimeout(i < nodes.length ? next : play, i < nodes.length ? 1400 : 2500);
+      if (i < nodes.length) setTimeout(next, 1400);
     }
     setTimeout(next, 400);
   }
